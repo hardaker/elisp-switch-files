@@ -18,6 +18,7 @@
 ;; from the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA
 ;; 02139, USA.
 ;;
+;; $ident$
 
 (defvar switch-files-paths '("." "/home/hardaker/src/snmp/net-snmp/include" "/home/hardaker/src/snmp/net-snmp/include/net-snmp" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/library" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/agent" "/usr/include" "/usr/local/include")
   "the list of paths to look through for matching files.")
