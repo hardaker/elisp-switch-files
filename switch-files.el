@@ -1,7 +1,7 @@
 ;; swich-files.el: a method of switching between matched pairs of
 ;; files and for following include directives.
 ;;
-;; Copyright (C) 2002  Wes Hardaker <elisp@hardakers.net>
+;; Copyright (C) 2002-2004  Wes Hardaker <elisp@hardakers.net>
 ;;
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -18,9 +18,9 @@
 ;; from the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA
 ;; 02139, USA.
 ;;
-;; $Revision: 1.7 $
+;; $Revision: 1.8 $
 
-(defvar switch-files-paths '("." "/home/hardaker/src/snmp/net-snmp/include" "/home/hardaker/src/snmp/net-snmp/include/net-snmp" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/library" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/agent" "/usr/include" "/usr/local/include")
+(defvar switch-files-paths '("." "/usr/include" "/usr/local/include")
   "the list of paths to look through for matching files.")
 
 (defvar switch-files-list '(("\\.c" ".h")
