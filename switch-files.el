@@ -1,5 +1,27 @@
-(defvar switch-files-paths '("." "/home/hardaker/src/snmp/net-snmp/include" "/usr/include" "/usr/local/include")
+;; swich-files.el: a method of switching between matched pairs of
+;; files and for following include directives.
+;;
+;; Copyright (C) 2002  Wes Hardaker <gpl@hardakers.net>
+;;
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; A copy of the GNU General Public License can be obtained from this
+;; program's author (send electronic mail to psmith@BayNetworks.com) or
+;; from the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA
+;; 02139, USA.
+;;
+
+(defvar switch-files-paths '("." "/home/hardaker/src/snmp/net-snmp/include" "/home/hardaker/src/snmp/net-snmp/include/net-snmp" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/library" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/agent" "/usr/include" "/usr/local/include")
   "the list of paths to look through for matching files.")
+
 (defvar switch-files-list '(("\\.c" ".h")
 			 ("\\.C" ".H")
 			 ("\\.h" ".c")
@@ -15,7 +37,7 @@
 (defun mytmp ()
   (interactive)
   (if
-      (looking-at "#include [<\\\"]\\(\\([^/]*\\|.*/[^/]*\\)\\.h\\)[>\\\"]")
+      (looking-at "# *include [<\\\"]\\(\\([^/]*\\|.*/[^/]*\\)\\.h\\)[>\\\"]")
       (progn
 	(message "yes")
 	(message (concat "1: " (buffer-substring (match-beginning 1) (match-end 1))))
