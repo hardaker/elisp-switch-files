@@ -18,7 +18,7 @@
 ;; from the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA
 ;; 02139, USA.
 ;;
-;; $Revision: 1.6 $
+;; $Revision: 1.7 $
 
 (defvar switch-files-paths '("." "/home/hardaker/src/snmp/net-snmp/include" "/home/hardaker/src/snmp/net-snmp/include/net-snmp" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/library" "/home/hardaker/src/snmp/net-snmp/include/net-snmp/agent" "/usr/include" "/usr/local/include")
   "the list of paths to look through for matching files.")
@@ -34,18 +34,6 @@
 
 (defvar switch-file-backto nil
   "A buffer local variable containing a buffer to jump back to for switch-file.")
-
-(defun mytmp ()
-  (interactive)
-  (if
-      (looking-at "# *include [<\\\"]\\(\\([^/]*\\|.*/[^/]*\\)\\.h\\)[>\\\"]")
-      (progn
-	(message "yes")
-	(message (concat "1: " (buffer-substring (match-beginning 1) (match-end 1))))
-	(sleep-for 1)
-	(message (buffer-substring (match-beginning 2) (match-end 2)))
-	(sleep-for 2))
-    (message "no")))
 
 (defun switch-files ()
   (interactive)
