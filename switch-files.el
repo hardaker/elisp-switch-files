@@ -18,7 +18,7 @@
 ;; from the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA
 ;; 02139, USA.
 ;;
-;; $Revision: 1.8 $
+;; $Revision: 1.9 $
 
 (defvar switch-files-paths '("." "/usr/include" "/usr/local/include")
   "the list of paths to look through for matching files.")
@@ -27,6 +27,8 @@
 			 ("\\.C" ".H")
 			 ("\\.h" ".c")
 			 ("\\.H" ".C")
+			 ("\\.rej" "")
+			 ("\\.in" ".txt")
 			 ("\\.pm" ".xs")
 			 ("\\.xs" ".pm")
 			 ("\\.CPP" ".H"))
@@ -45,11 +47,19 @@
 	 ; the name of the file to go look for.  Used for (message)s only.
 	 (startfile
 	  (or
-	   ; are we staring at an include directive.
+	   ; are we staring at an C/C++ include directive.
 	   (and
 	    (looking-at
 	     "#include [<\\\"]\\([^/>\\\"]*\\|.*/[^/>\\\"]*\\)[>\\\"]")
 	    (buffer-substring (match-beginning 1) (match-end 1)))
+
+	   ; are we staring at a latex include/input directive.
+	   (and
+	    (looking-at
+	     "\\\\\\(input\\|include\\){\\(.*\\)}")
+	    (concat
+	     (buffer-substring (match-beginning 2) (match-end 2)) ".tex"))
+	   
 	   ; are we in a buffer that we know where to go back to already?
 	   switch-file-backto
 	   ; can we guess at a file name from the current buffer name?
