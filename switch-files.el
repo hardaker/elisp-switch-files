@@ -1,5 +1,4 @@
-;; swich-files.el: a method of switching between matched pairs of
-;; files and for following include directives.
+;;; swich-files.el --- switch between matched pairs of files and follow include directives
 ;;
 ;; Copyright (C) 2002-2004  Wes Hardaker <elisp@hardakers.net>
 ;;
@@ -19,6 +18,13 @@
 ;; 02139, USA.
 ;;
 ;; $Revision: 1.9 $
+
+;;; Commentary:
+
+;; This package provides a method of switching between matched pairs of
+;; files and for following include directives.
+
+;;; Code:
 
 (defvar switch-files-paths '("." "/usr/include" "/usr/local/include")
   "the list of paths to look through for matching files.")
